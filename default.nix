@@ -1,5 +1,6 @@
 {
   lib,
+  stdenv,
   fetchFromGitHub,
   pkg-config,
   rustPlatform,
@@ -35,10 +36,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
   buildInputs = [
     atk
     gtk3
-    gtk-layer-shell
     glib
     glib-networking
     webkitgtk_4_1
+  ] 
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
+    gtk-layer-shell
   ];
 
   cargoHash = "sha256-Jvl9+LiFvMI1k7jCJh2WPz7FaPo0KSxSVLaCXbFAXKs=";
