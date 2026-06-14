@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v27
-      - run: nix-build -E 'with import <nixpkgs> {}; callPackage ./default.nix {}'
+      - run: nix-build -E 'with import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {}; callPackage ./default.nix {}'
 
   build-darwin:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v27
-      - run: nix-build -E 'with import <nixpkgs> {}; callPackage ./default.nix {}'
+      - run: nix-build -E 'with import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {}; callPackage ./default.nix {}'
