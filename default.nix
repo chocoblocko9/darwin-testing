@@ -13,6 +13,7 @@
   webkitgtk_4_1,
   wrapGAppsHook3,
 }:
+
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "wewa";
   version = "0.3.5";
@@ -38,10 +39,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     gtk3
     glib
     glib-networking
-    webkitgtk_4_1
   ] 
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     gtk-layer-shell
+    webkitgtk_4_1
   ];
 
   cargoHash = "sha256-Jvl9+LiFvMI1k7jCJh2WPz7FaPo0KSxSVLaCXbFAXKs=";
