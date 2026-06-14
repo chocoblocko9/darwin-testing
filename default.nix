@@ -12,7 +12,6 @@
   webkitgtk_4_1,
   wrapGAppsHook3,
 }:
-
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "wewa";
   version = "0.3.5";
@@ -50,7 +49,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     description = "Cross-platform cli dynamic wallpaper tool to make website or shader as your wallpaper";
     homepage = "https://github.com/ownself/wewa";
     license = lib.licenses.mit;
-    platforms = lib.platforms.linux;
+    platforms = lib.platforms.all;
     maintainers = with lib.maintainers; [ choco98 ];
   };
 })
